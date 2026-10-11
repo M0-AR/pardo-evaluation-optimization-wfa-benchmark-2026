@@ -66,11 +66,11 @@ footer{color:var(--mut);font-size:13px;margin:30px 0}
 
 <h2>Watch it work (48 KB, loads instantly)</h2>
 <p>Blue = the computer studies (in-sample optimize). Red = locked exam on unseen data (out-of-sample). The red segments stitched together are the <b>only</b> performance we trust.</p>
-<img class="chart" src="docs/demo.gif" alt="Walk-forward windows sweeping through SPY history: blue optimize, red locked test">
-<p style="color:var(--mut)">Terminal-recording practice: <code>docs/demo.tape</code> documents the exact VHS recipe to re-record this as MP4/WebM. GitHub READMEs can't autoplay video, so we ship this fast GIF + the tape.</p>
+<img class="chart" src="demo.gif" alt="Walk-forward windows sweeping through SPY history: blue optimize, red locked test">
+<p style="color:var(--mut)">Terminal-recording practice: <code>demo.tape</code> documents the exact VHS recipe to re-record this as MP4/WebM. GitHub READMEs can't autoplay video, so we ship this fast GIF + the tape.</p>
 
 <h2>Verdicts on live data (frozen 2026-10-11 run)</h2>
-<img class="chart" src="docs/wfa_summary.png" alt="Walk-forward pass-rate and median efficiency per symbol">
+<img class="chart" src="wfa_summary.png" alt="Walk-forward pass-rate and median efficiency per symbol">
 <table>
 <tr><th>Asset</th><th>Folds</th><th>OOS pass</th><th>Median efficiency</th><th>Verdict</th></tr>
 <tr><td>SPY</td><td>17</td><td>70.6%</td><td>+0.60</td><td class="pass">ROBUST</td></tr>
@@ -85,7 +85,7 @@ footer{color:var(--mut);font-size:13px;margin:30px 0}
 <p>Lesson: trend rules survive on broad equity, die on FX — market type matters (Pardo Ch.6).</p>
 
 <h2>New discovery: short exams fake failure</h2>
-<img class="chart" src="docs/window_ratio.png" alt="Pass-rate and efficiency rise with out-of-sample over in-sample ratio">
+<img class="chart" src="window_ratio.png" alt="Pass-rate and efficiency rise with out-of-sample over in-sample ratio">
 <table>
 <tr><th>OOS/IS ratio</th><th>Median pass</th><th>Median efficiency</th><th>Meaning</th></tr>
 <tr><td>0.083 (63-day exams)</td><td>20.2%</td><td>0.00</td><td>Too few trades — noise looks like failure</td></tr>
@@ -95,13 +95,13 @@ footer{color:var(--mut);font-size:13px;margin:30px 0}
 </table>
 
 <h2>Honest holdout (last 6 months, never tuned)</h2>
-<img class="chart" src="docs/live_holdout.png" alt="Locked-parameter holdout returns per symbol">
+<img class="chart" src="live_holdout.png" alt="Locked-parameter holdout returns per symbol">
 <p>Locked walk-forward medians earned BTC +58.1% CAGR but SPY −1.4% on the final 6 months. <b>Robust in walk-forward does not mean green next quarter.</b> That's why live trading needs stop-loss + profile monitoring — both in this repo's protocol.</p>
 
 <h2>More evidence</h2>
 <div class="grid">
-<div class="card"><h3>Preliminary Sharpe map</h3><img class="chart" src="docs/preliminary_sharpe.png" alt="Sharpe per strategy per symbol"></div>
-<div class="card"><h3>SPY equity vs buy-hold</h3><img class="chart" src="docs/spy_equity.png" alt="SPY MA vs buy and hold equity"></div>
+<div class="card"><h3>Preliminary Sharpe map</h3><img class="chart" src="preliminary_sharpe.png" alt="Sharpe per strategy per symbol"></div>
+<div class="card"><h3>SPY equity vs buy-hold</h3><img class="chart" src="spy_equity.png" alt="SPY MA vs buy and hold equity"></div>
 </div>
 
 <h2 id="reproduce">Reproduce everything (3 commands)</h2>
@@ -169,7 +169,7 @@ render();
 <tr><td><code>paper/</code></td><td>Publishable-paper skeleton from these results</td></tr>
 </table>
 
-<footer>MIT · research/education only · not investment advice · All figures generated from <code>results/</code> by <code>scripts/generate_visuals.py</code> · Pardo (2008) Ch.2–14 mapped in README · This page is <code>preview.html</code> (root) mirrored to <code>docs/index.html</code> for GitHub Pages “Deploy from a branch”.</footer>
+<footer>MIT · research/education only · not investment advice · All figures generated from <code>results/</code> by <code>scripts/generate_visuals.py</code> · Pardo (2008) Ch.2–14 mapped in README · Canonical: <code>docs/preview.html</code> + <code>docs/index.html</code>; mirrors: root <code>preview.html</code> + root <code>index.html</code> (redirect). Recommended Pages source: <code>/docs</code>.</footer>
 </div>
 </body>
 </html>

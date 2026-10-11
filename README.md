@@ -5,9 +5,9 @@
 [![Live data 2015–2026](https://img.shields.io/badge/data-live%202015--2026-green.svg)](data_cache/)
 [![Tests](https://img.shields.io/badge/tests-4%20passed-brightgreen.svg)](tests/test_pipeline.py)
 [![Docker ready](https://img.shields.io/badge/docker-ready-blue.svg)](docker-compose.yml)
-[![GitHub Pages](https://img.shields.io/badge/site-preview.html-blueviolet.svg)](preview.html)
+[![GitHub Pages](https://img.shields.io/badge/site-live-blueviolet.svg)](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/)
 
-> **🌐 Live website:** open [`preview.html`](preview.html) locally, or after push go to **Settings → Pages → Deploy from a branch → `main` + `/docs`** — your site appears at `https://<you>.github.io/<repo>/` (mirror lives at [`docs/index.html`](docs/index.html), `.nojekyll` included so it serves as-is).
+> **🌐 Live website — click to open in your browser:** [`/` (recommended entry)](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/) · [`/preview.html`](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/preview.html) · [`/docs/preview.html` (works when Pages source is `/` root)](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/docs/preview.html) — or open [`preview.html`](preview.html) locally. To publish: **Settings → Pages → Deploy from a branch → `main` + `/docs`** (recommended; mirrors below make root work too).
 
 ## CEO summary — the 30-second version
 
@@ -92,8 +92,8 @@ Expected first success: a table ending with `saved results/01_preliminary.csv` a
 - **Three strategy families, eight live assets:** MA crossover, RSI counter-trend, Donchian breakout on SPY/QQQ/AAPL/BTC/ETH/EURUSD/gold/oil 2015–2026.
 - **Overfitting diagnostics:** degrees-of-freedom remaining, 200-permutation placebo z/p, big-fish concentration flag, parameter-jump stability.
 - **Hidden-pattern engine:** 3×3 IS×OOS matrix (72 walk-forwards) + overnight-gap/ATR diagnostic — the PhD seed.
-- **One-command reproduction:** native (`bash scripts/run_all.sh`), Docker (`docker compose up --build`), and static website (`preview.html` → Pages).
-- **Learning layer:** beginner path above + 8-question interactive quiz in [`preview.html`](preview.html) (score saves in browser) + FAQ + paper skeleton.
+- **One-command reproduction:** native (`bash scripts/run_all.sh`), Docker (`docker compose up --build`), and static website ([`/` live](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/) · [`/preview.html`](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/preview.html) · [`/docs/preview.html`](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/docs/preview.html) → Pages).
+- **Learning layer:** beginner path above + 8-question interactive quiz in [`preview.html`](preview.html) and live at [`/` (quiz section)](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/#quiz) (score saves in browser) + FAQ + paper skeleton.
 
 ## User stories — who this is for
 
@@ -102,7 +102,7 @@ Expected first success: a table ending with `saved results/01_preliminary.csv` a
 - 🔬 **Researcher / PhD:** fork the window matrix + placebo harness for objective-function or purge ablations; start from `paper/PAPER_OUTLINE.md`.
 - 👔 **Reviewer / allocator:** ask any vendor "show me concatenated-OOS, WFE, param stability, holdout lock" — this repo is the checklist.
 - 🛠 **Engineer:** Docker rerun, frozen cache, green-tests gate; add your broker's costs without touching science code.
-- 📚 **Educator:** project `preview.html` in class (GIF → verdicts → quiz); homework: change IS/OOS and defend the new verdict.
+- 📚 **Educator:** project [`/` live site](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/) in class (GIF → verdicts → quiz); homework: change IS/OOS and defend the new verdict.
 
 ## Screenshots — proof, not promises
 
@@ -164,8 +164,10 @@ experiments/
 tests/test_pipeline.py    # no-hand-edit-without-verify gate (4 tests, must pass)
 results/                  # every table the README cites (CSV audit trail)
 data_cache/               # frozen OHLC snapshots (8 symbols, 2015→2026-10-10)
-docs/                     # charts + demo.gif + demo.tape + index.html + screenshots (Pages source)
-preview.html              # standalone beautiful site (mirrored to docs/index.html)
+docs/                     # charts + demo.gif + demo.tape + index.html + preview.html + screenshots (Pages source, recommended)
+preview.html              # standalone beautiful site (root mirror with docs/ asset paths)
+index.html                # root redirect to preview.html + fallback links (so `/` works under either source)
+.nojekyll + docs/.nojekyll # present in both sources so Pages serves files exactly as committed
 paper/PAPER_OUTLINE.md    # publishable-paper skeleton built on these results
 Dockerfile + docker-compose.yml + scripts/run_all.sh  # one-command reproduction
 scripts/generate_visuals.py + scripts/generate_demo_gif.py  # all figures regenerable
@@ -201,7 +203,7 @@ bash scripts/run_all.sh
 docker compose up --build
 # results appear in results/ ; cache frozen in data_cache/
 # 3) website
-open preview.html  # or publish via Pages below
+open preview.html  # local file; live: / , /preview.html, /docs/preview.html links at top
 # 4) figures only
 python3 scripts/generate_visuals.py
 python3 scripts/generate_demo_gif.py
@@ -223,7 +225,7 @@ Config change = new experiment: edit `config/experiment.yaml` (IS/OOS/purge/obje
 
 ## Interactive quiz — scratch to pro
 
-The full 8-question quiz lives in [`preview.html`](preview.html) (score saves in your browser, works offline, no account). It walks school→exam logic, WFE reading, single-spike rejection, window-power, holdout discipline, and concentration flags. Open it, answer, and re-take after you re-run an experiment — that loop is the whole method.
+The full 8-question quiz lives in [`preview.html`](preview.html) and live at [`/` (quiz section)](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/#quiz) (score saves in your browser, works offline, no account). It walks school→exam logic, WFE reading, single-spike rejection, window-power, holdout discipline, and concentration flags. Open it, answer, and re-take after you re-run an experiment — that loop is the whole method.
 
 Quick self-check (answers in the site quiz): *one backtest proves nothing; only stitched OOS counts; WFE 0.6 is healthy; a lone +40% IS never overrules 18 OOS folds; 63-day OOS is usually noise; never tune on the holdout.*
 
@@ -241,15 +243,37 @@ Quick self-check (answers in the site quiz): *one backtest proves nothing; only 
 
 ## GitHub Pages — publish this repo as a website
 
-No build step. The site is pure HTML/CSS/JS (`preview.html`, mirrored to `docs/index.html`):
+No build step. Pure HTML/CSS/JS with mirrors so **both** source settings resolve:
+
+- Canonical: `docs/preview.html` + `docs/index.html` (asset paths relative to `docs/`, e.g. `src="demo.gif"`).
+- Mirrors: `preview.html` at repo root (asset paths `docs/…`) + `index.html` at root (redirect to `preview.html` + fallback links).
+- `.nojekyll` at root **and** `docs/.nojekyll` so Pages serves files exactly as committed.
+
+**Click to open (after Pages is on):** [`/`](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/) · [`/preview.html`](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/preview.html) · [`/docs/preview.html`](https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026/docs/preview.html)
 
 1. Push this repo to GitHub.
 2. Open **Settings → Pages**.
 3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Choose branch **`main`** (or `master`) and folder **`/docs`**, Save.
-5. Wait ~1 minute, open `https://<your-user>.github.io/<repo>/`.
+4. Choose branch **`main`** and folder **`/docs`** (recommended), Save.
+5. Wait 1–2 min, check the Actions “pages build and deployment” run, then probe:
 
-To use a custom domain: add it under Settings → Pages → Custom domain, add the shown `CNAME` DNS record, enforce HTTPS. `docs/.nojekyll` is already present so Pages serves the files exactly as committed. Anyone opening the link sees the charts, GIF, tables, and quiz — no install needed.
+```bash
+BASE="https://M0-AR.github.io/pardo-evaluation-optimization-wfa-benchmark-2026"
+for p in "" "preview.html" "docs/preview.html"; do
+  printf "%s -> " "/$p"
+  curl -s -o /dev/null -w "%{http_code}\n" "$BASE/$p"
+done
+```
+
+| `/` | `/preview.html` | `/docs/preview.html` | Meaning |
+|---|---|---|---|
+| 200 | 200 | 404 | source = `/docs` ✅, all good (recommended) |
+| 200 | 200 | 200 | source = `/` (root); mirrors cover everything |
+| 404 | 404 | 404 | Pages off / still building / wrong branch |
+
+Rules: the entry (`index.html`) must sit at the top of the chosen source; every other URL mirrors the repo path under that source (source `/docs` → `docs/x.html` serves at `/x.html`; source `/` → `docs/x.html` serves at `/docs/x.html`); asset paths are relative (`docs/…` from root files, bare from `docs/` files) so project Pages (served under `/<repo>/`) never break.
+
+To use a custom domain: add it under Settings → Pages → Custom domain, add the shown `CNAME` DNS record, enforce HTTPS. Anyone opening the link sees the charts, GIF, tables, and quiz — no install needed.
 
 ## FAQ
 
