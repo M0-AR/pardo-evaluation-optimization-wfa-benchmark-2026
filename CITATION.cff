@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+title: Pardo Evaluation and Optimization — Independent Live-Market Replication and Walk-Forward Benchmark (2026-2027)
+version: 1.0.0
+authors:
+  - name: Independent replication study
+license: MIT
+repository-code: file:///home/md/src/pardo-evaluation-optimization-wfa-benchmark-2026
+keywords: [walk-forward-analysis, overfitting, trading-strategies, Pardo, reproducibility, live-market-verification]

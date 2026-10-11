@@ -1,0 +1,38 @@
+data:
+  symbols: ["SPY", "QQQ", "AAPL", "BTC-USD", "ETH-USD", "EURUSD=X", "GC=F", "CL=F"]
+  start: "2015-01-01"
+  end: "2026-10-10"
+  cache_dir: "data_cache"
+  # Pardo Ch.6 realistic assumptions
+  commission_per_trade: 1.0
+  slippage_bps: 5.0
+  # risk-free for Sharpe (annual)
+  risk_free: 0.02
+
+preliminary:
+  ma_fast: 10
+  ma_slow: 30
+  rsi_period: 14
+  rsi_oversold: 30
+  rsi_overbought: 70
+  donchian_lookback: 20
+
+optimization:
+  ma_fast_range: [2, 5, 10, 15, 20]
+  ma_slow_range: [30, 50, 100, 150, 200]
+  rsi_period_range: [2, 7, 14, 21]
+  donchian_range: [10, 20, 40, 55]
+  min_trades: 30
+
+walkforward:
+  # anchored=false => rolling (preferred by professionals, BuildAlpha 2026)
+  in_sample_days: 756    # ~3y trading days
+  out_of_sample_days: 126 # ~6m  (OOS/IS ~ 16.7%; Pardo 1/8..1/3 band tested in exp 05)
+  step_days: 126
+  purge_days: 5          # CPCV-style purge to kill look-ahead leakage (Lopez de Prado / 2026 guide)
+  objective: "prom"      # prom | sharpe | gt_score
+
+live:
+  # strict lock: last OOS window is never tuned, only evaluated
+  holdout_days: 126
+  fee_bps: 10.0

@@ -1,0 +1,6 @@
+[project]
+name = "pardo-wfa-benchmark"
+version = "1.0.0"
+description = "Pardo Evaluation and Optimization of Trading Strategies - full A-Z independent replication + live-market verification benchmark (2026-2027)"
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.0", "numpy>=1.24", "yfinance>=0.2.40", "pyyaml>=6.0", "matplotlib>=3.7", "scipy>=1.11"]

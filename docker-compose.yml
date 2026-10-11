@@ -1,0 +1,10 @@
+services:
+  research:
+    build: .
+    volumes:
+      - ./results:/app/results
+      - ./data_cache:/app/data_cache
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TZ=UTC
+    command: bash scripts/run_all.sh
